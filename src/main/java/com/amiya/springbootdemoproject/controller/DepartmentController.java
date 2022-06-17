@@ -40,6 +40,12 @@ public class DepartmentController {
         return new ResponseEntity<>(departmentService.deleteDepartment(departmentName),HttpStatus.OK);
     }
     
+      @PatchMapping("/{id}")
+    public ResponseEntity < ? > updateResource(@RequestBody Department department, @PathVariable("id") Long departmentId) {
+        Department newDepartment = departmentService.updateDepartment(department, departmentId);
+        return new ResponseEntity < > (newDepartment, HttpStatus.OK);
+    }
+    
 
 
 
